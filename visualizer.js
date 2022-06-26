@@ -44,7 +44,7 @@ class Visualizer {
             ctx.fill();
             ctx.beginPath();
             ctx.arc(x, bottom, nodeRadius*0.6, 0, Math.PI*2);
-            ctx.fillStyle = "white";
+            ctx.fillStyle = getRGBA(inputs[i]);
             ctx.fill();
         }
 
@@ -56,7 +56,7 @@ class Visualizer {
             ctx.fill();
             ctx.beginPath();
             ctx.arc(x, top, nodeRadius*0.6, 0, Math.PI*2);
-            ctx.fillStyle = "white";
+            ctx.fillStyle = getRGBA(outputs[i]);
             ctx.fill();
 
             ctx.beginPath();
