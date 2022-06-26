@@ -142,24 +142,26 @@ class Car {
     }
 
     draw(ctx, drawSensor=false) {
+        if (this.sensor && drawSensor) {
+            this.sensor.draw(ctx);
+        }
+
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(-this.angle);
-        ctx.drawImage(this.mask,
-            -this.width/2,
-            -this.height/2,
-            this.width,
-            this.height);
-        ctx.globalCompositeOperation = "multiply";
+        if (!this.damaged) {
+            ctx.drawImage(this.mask,
+                -this.width/2,
+                -this.height/2,
+                this.width,
+                this.height);
+            ctx.globalCompositeOperation = "multiply";
+        }
         ctx.drawImage(this.img,
             -this.width/2,
             -this.height/2,
             this.width,
             this.height);
         ctx.restore();
-
-        if (this.sensor && drawSensor) {
-            this.sensor.draw(ctx);
-        }
     }
 }
