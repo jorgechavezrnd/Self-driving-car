@@ -20,13 +20,7 @@ class Visualizer {
 
         const nodeRadius = 18;
         for (let i = 0; i < inputs.length; i++) {
-            const x = lerp(
-                left,
-                right,
-                inputs.length==1
-                    ? 0.5
-                    : i/(inputs.length-1)
-            );
+            const x = Visualizer.#getNodeX(inputs, i, left, right);
             ctx.beginPath();
             ctx.arc(x, bottom, nodeRadius, 0, Math.PI*2);
             ctx.fillStyle = "white";
@@ -34,13 +28,7 @@ class Visualizer {
         }
 
         for (let i = 0; i < outputs.length; i++) {
-            const x = lerp(
-                left,
-                right,
-                outputs.length==1
-                    ? 0.5
-                    : i/(outputs.length-1)
-            );
+            const x = Visualizer.#getNodeX(outputs, i, left, right);
             ctx.beginPath();
             ctx.arc(x, top, nodeRadius, 0, Math.PI*2);
             ctx.fillStyle = "white";
