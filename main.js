@@ -8,7 +8,7 @@ const networkCtx = networkCanvas.getContext("2d");
 
 const road = new Road(carCanvas.width / 2, carCanvas.width * 0.9);
 
-const N = 1000;
+const N = 1;
 const cars = generateCars(N);
 let bestCar = cars[0];
 if (localStorage.getItem("bestBrain")) {
@@ -44,7 +44,7 @@ function discard() {
 
 function generateCars(N) {
     const cars = [];
-    for (let i = 0; i <= N; i++) {
+    for (let i = 1; i <= N; i++) {
         cars.push(new Car(road.getLaneCenter(1), 100, 30, 50, "AI"));
     }
     return cars;
